@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "xWI9lFPozuhMn3pRbVRvkueij8UHztkb9L3FWcKKAw3UhXzkT8Vp1gncebq+kL++lnAPpZDOj7PolpCq0suLgA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\evanj\\source\\repos\\movieListingApp\\movieListingApp\\movieListingApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\evanj\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.5\\microsoft.netcore.app.ref.7.0.5.nupkg.sha512",
+    "C:\\Users\\evanj\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.5\\microsoft.windowsdesktop.app.ref.7.0.5.nupkg.sha512",
+    "C:\\Users\\evanj\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.5\\microsoft.aspnetcore.app.ref.7.0.5.nupkg.sha512",
+    "C:\\Users\\evanj\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.5\\microsoft.netcore.app.host.win-x64.7.0.5.nupkg.sha512"
+  ],
+  "logs": []
+}

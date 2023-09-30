@@ -1,0 +1,15 @@
+C:\Users\evanj\source\repos\movieListingApp\movieListingApp\bin\Debug\net7.0\movieListingApp.exe
+C:\Users\evanj\source\repos\movieListingApp\movieListingApp\bin\Debug\net7.0\movieListingApp.deps.json
+C:\Users\evanj\source\repos\movieListingApp\movieListingApp\bin\Debug\net7.0\movieListingApp.runtimeconfig.json
+C:\Users\evanj\source\repos\movieListingApp\movieListingApp\bin\Debug\net7.0\movieListingApp.dll
+C:\Users\evanj\source\repos\movieListingApp\movieListingApp\bin\Debug\net7.0\movieListingApp.pdb
+C:\Users\evanj\source\repos\movieListingApp\movieListingApp\obj\Debug\net7.0\movieListingApp.csproj.AssemblyReference.cache
+C:\Users\evanj\source\repos\movieListingApp\movieListingApp\obj\Debug\net7.0\movieListingApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\evanj\source\repos\movieListingApp\movieListingApp\obj\Debug\net7.0\movieListingApp.AssemblyInfoInputs.cache
+C:\Users\evanj\source\repos\movieListingApp\movieListingApp\obj\Debug\net7.0\movieListingApp.AssemblyInfo.cs
+C:\Users\evanj\source\repos\movieListingApp\movieListingApp\obj\Debug\net7.0\movieListingApp.csproj.CoreCompileInputs.cache
+C:\Users\evanj\source\repos\movieListingApp\movieListingApp\obj\Debug\net7.0\movieListingApp.dll
+C:\Users\evanj\source\repos\movieListingApp\movieListingApp\obj\Debug\net7.0\refint\movieListingApp.dll
+C:\Users\evanj\source\repos\movieListingApp\movieListingApp\obj\Debug\net7.0\movieListingApp.pdb
+C:\Users\evanj\source\repos\movieListingApp\movieListingApp\obj\Debug\net7.0\movieListingApp.genruntimeconfig.cache
+C:\Users\evanj\source\repos\movieListingApp\movieListingApp\obj\Debug\net7.0\ref\movieListingApp.dll
