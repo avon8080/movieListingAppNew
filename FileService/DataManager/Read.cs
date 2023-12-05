@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using movieListingApp.FileService.FileServiceFactory;
 
-namespace movieListingApp
+namespace movieListingApp.FileService.DataManager
 {
     public class Read : ITextReader
     {
@@ -16,7 +17,7 @@ namespace movieListingApp
 
         public void ReadFile()
         {
-            StreamReader sr = Factory.CreateStreamReader(FileName);
+            StreamReader sr = FileFactory.CreateStreamReader(FileName);
             if (File.Exists(FileName))
             {
                 var count = 0;
@@ -46,10 +47,10 @@ namespace movieListingApp
                 sr.Close();
             }
         }
-                
-            }
-        }
-     
+
+    }
+}
+
 
 
 

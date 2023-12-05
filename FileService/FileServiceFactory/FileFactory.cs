@@ -1,19 +1,16 @@
-﻿using System;
+﻿using movieListingApp.FileService.DataManager;
+using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MovieLibraryEntities.Context;
+using MovieLibraryEntities.Dao;
 
-namespace movieListingApp
+namespace movieListingApp.FileService.FileServiceFactory
 {
-    public static class Factory
+    public static class FileFactory
     {
-        public static IDataManager CreateDataManager(ITextReader read, ITextWriter write)
-        {
-            return new DataManager(read, write);
-        }
-
         public static StreamReader CreateStreamReader(string file)
         {
             return new StreamReader(file);
@@ -34,7 +31,6 @@ namespace movieListingApp
             return new StreamWriter(filename, write);
         }
 
-        
 
     }
 }

@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using movieListingApp.FileService.FileServiceFactory;
 
-namespace movieListingApp
+namespace movieListingApp.FileService.DataManager
 {
     public class WriteFile : ITextWriter
 
-    
+
 
     {
         private string FileName { get; set; }
@@ -39,7 +40,7 @@ namespace movieListingApp
                     Console.WriteLine("Enter genre: ");
                     genre.Split('|');
                     genre += Console.ReadLine();
-                    
+
 
                     Console.WriteLine("Would you like to continue? enter y : else any key");
                     if (Console.ReadLine() != "y")
@@ -49,12 +50,12 @@ namespace movieListingApp
                 }
 
                 int id = GetId();
-                StreamWriter sw = Factory.CreateStreamWriter(FileName, writeFile);
+                StreamWriter sw = FileFactory.CreateStreamWriter(FileName, writeFile);
                 sw.WriteLine($"{id}, {title}, {genre}");
                 Console.WriteLine("Would you like to write again-- y for yes : n for no");
                 if (Console.ReadLine().ToLower() == "y")
                     writeAgain = true;
-                
+
                 else
                 {
                     sw.Flush();
@@ -64,24 +65,24 @@ namespace movieListingApp
                 sw.Flush();
                 sw.Close();
             }
-            }
+        }
 
-        public bool checkTitle(string title)
+        private bool checkTitle(string title)
         {
             //https://learn.microsoft.com/en-us/dotnet/csharp/how-to/compare-strings
-            var listFile = Factory.CreateStreamReader(FileName);
+            var listFile = FileFactory.CreateStreamReader(FileName);
             while (!listFile.EndOfStream)
             {
                 var item = listFile.ReadLine();
                 string[] itemStrings = item.Split(',');
-                bool areEqual = String.Equals(title, itemStrings[1], StringComparison.OrdinalIgnoreCase);
+                bool areEqual = string.Equals(title, itemStrings[1], StringComparison.OrdinalIgnoreCase);
                 if (areEqual)
                 {
                     Console.WriteLine("This item already exists -- Please try a different movie");
                     listFile.Close();
                     return true;
                 }
-                
+
             }
 
             listFile.Close();
@@ -89,17 +90,17 @@ namespace movieListingApp
         }
         private int GetId()
         {
-            var listFile = Factory.CreateStreamReader(FileName);
+            var listFile = FileFactory.CreateStreamReader(FileName);
             int id = 0;
             while (!listFile.EndOfStream)
             {
                 var item = listFile.ReadLine();
-            
+
                 string[] itemStrings = item.Split(',');
                 int idInt = 0;
                 try
-                { 
-                    idInt = Int32.Parse(itemStrings[0]);
+                {
+                    idInt = int.Parse(itemStrings[0]);
                 }
                 catch (FormatException e)
                 {
@@ -109,12 +110,12 @@ namespace movieListingApp
                 if (idInt > id)
                 {
                     id = idInt;
-                   
-                }                
+
+                }
             }
             listFile.Close();
-            return id+=1;
+            return id += 1;
         }
 
-}
     }
+}

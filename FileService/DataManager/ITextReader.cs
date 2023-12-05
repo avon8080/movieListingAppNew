@@ -1,4 +1,4 @@
-﻿namespace movieListingApp
+﻿namespace movieListingApp.FileService.DataManager
 {
     public interface ITextReader
     {
