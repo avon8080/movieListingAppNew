@@ -43,13 +43,29 @@ namespace movieListingApp
                     case "4":
                         _dataManager.Search();
                         break;
+                    case "5":
+                        _dataManager.UpdateMovieDb();
+                        break;
+                    case "6":
+                        Console.WriteLine(_dataManager.RemoveMovieDB());
+                        break;
+                    case "7":
+                        _dataManager.AddUserDb();
+                        break;
+                    case "8":
+                        _dataManager.AddRating();
+                        break;
+                    //case "9":
+                    //    _dataManager.getTopRatedByOccupation();
+                    //    break;
+
                 }
             } while (choice != "q") ;
         }
 
         private string DisplayMenu()
         {
-            Console.WriteLine("\t--Menu--\n1. File service (read/write)\n2. Add movie to database\n3. List movies From DB\n4. Q to Quit\n==>");
+            Console.Write("\t--Menu--\n1. File service (read/write)\n2. Add movie to database\n3. List all movies From DB\n4. Search movie\n5. Update movie\n6. Remove movie\n7. Add user\n8. Add Rating\nQ to Quit\n==>");
             return Console.ReadLine().ToLower();
 
         }

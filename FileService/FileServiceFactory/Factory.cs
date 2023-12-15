@@ -10,24 +10,25 @@ using Microsoft.EntityFrameworkCore.Internal;
 using MovieLibraryEntities;
 using MovieLibraryEntities.Context;
 using MovieLibraryEntities.Dao;
+using MovieLibraryEntities.Models;
 
 namespace movieListingApp.FileService.FileServiceFactory
 {
     public static class Factory
     {
-        public static IDataManager CreateDataManager(ITextReader read, ITextWriter write, MovieContext context)
+        public static IDataManager CreateDataManager(ITextReader read, ITextWriter write, IContext context)
         {
             return new DataManager.DataManager(read, write, context);
         }
 
 
-        public static MovieContext CreateContext()
+        public static IContext CreateContext()
         {
             return new MovieContext();
         }
 
         
-        public static IRepository CreateRepository(MovieContext context)
+        public static IRepository CreateRepository(IContext context)
         {
             return new Repository(context);
         }

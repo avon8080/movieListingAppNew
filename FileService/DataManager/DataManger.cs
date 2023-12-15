@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Internal;
+using MovieLibraryEntities.Context;
 using MovieLibraryEntities.Dao;
 using movieListingApp.FileService;
 using movieListingApp.FileService.DataManager;
-using MovieLibraryEntities;
-using MovieLibraryEntities.Context;
+
 using movieListingApp.FileService.FileServiceFactory;
 
 namespace movieListingApp.FileService.DataManager
@@ -20,11 +20,11 @@ namespace movieListingApp.FileService.DataManager
         private IRepository _repository;
 
 
-        public DataManager(ITextReader read, ITextWriter write, MovieContext context)
+        public DataManager(ITextReader read, ITextWriter write, IContext context)
         {
             _read = read;
             _write = write;
-            _repository = Factory.CreateRepository(context); // I know this a dependency. This is where I ran into some trouble.
+            _repository = Factory.CreateRepository(Factory.CreateContext()); // I know this a dependency. This is where I ran into some trouble.
         }
 
         public void AddMovieDB()
@@ -37,16 +37,23 @@ namespace movieListingApp.FileService.DataManager
             Console.WriteLine("Enter a movie to search: ");
             var userMovieLine = Console.ReadLine();
             Console.WriteLine("Movies: ");
-            foreach (var movie in _repository.Search(userMovieLine))
+            var movieSearch = _repository.Search(userMovieLine).ToList();
+            foreach (var movie in movieSearch )
             {
                 Console.WriteLine($"\n{movie.Title}");
+                Console.WriteLine("Genres: ");
+                foreach (var genre in movie.MovieGenres.ToList())
+                {
+                    Console.WriteLine(genre.Genre.Name);
+                }
                 
             }
         }
 
-        public void RemoveMovieDB()
+        public string RemoveMovieDB()
         {
-            _repository.DeleteMovie();
+            long id = getId();
+           return _repository.DeleteMovie(id);
         }
 
         public void TextReader()
@@ -61,7 +68,75 @@ namespace movieListingApp.FileService.DataManager
 
         public void ListMovies()
         {
-            throw new NotImplementedException();
+           
+            Console.WriteLine("Enter the number of movies displayed per page (type v to view all): ");
+            var list = _repository.ListMovies();
+            var count = 0;
+
+            if (int.TryParse(Console.ReadLine(), out var page ))
+            {
+                count = page;
+                var continueReading = "";
+                do
+                {
+                    foreach (var movie in list.ToList())
+                    {
+                        count--;
+                        if (count == 0)
+                        {
+                            Console.WriteLine("Would you like to continue (y/n)");
+                            continueReading = Console.ReadLine().ToLower();
+                            if (continueReading == "y")
+                            {
+                                count = page;
+                            }
+                            else 
+                                break;
+                            
+                        }
+                        Console.WriteLine($"{movie.Title}");
+                    }
+
+                } while (continueReading != "n");
+            }
+            else
+            {
+                _repository.ListMovies().ToList().ForEach(Console.WriteLine);
+            }
         }
+
+        public void UpdateMovieDb()
+        {
+            long id = getId();
+            _repository.UpdateMovie(id);
+        }
+
+        private long getId()
+        {
+            Console.WriteLine("Enter Id:");
+            var isValid = long.TryParse(Console.ReadLine(), out var id);
+            return id;
+        }
+
+        public void AddUserDb()
+        {
+            _repository.AddUser();
+
+        }
+
+        public void AddRating()
+        {
+            _repository.UserRating();
+
+        }
+
+        //public void getTopRatedByOccupation()
+        //{
+            
+        //    foreach (var rating in _repository.TopRated().ToList())
+        //    {
+        //        Console.WriteLine(rating.Movie.Title);
+        //    }
+        //}
     }
 }

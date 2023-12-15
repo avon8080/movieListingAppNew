@@ -7353,8 +7353,8 @@
     },
     "MovieLibraryEntities/1.0.0": {
       "type": "project",
-      "path": "../MovieLibraryEntities/MovieLibraryEntities.csproj",
-      "msbuildProject": "../MovieLibraryEntities/MovieLibraryEntities.csproj"
+      "path": "../MovieAppd/MovieLibraryEntities/MovieLibraryEntities.csproj",
+      "msbuildProject": "../MovieAppd/MovieLibraryEntities/MovieLibraryEntities.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -7395,8 +7395,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\evanj\\source\\repos\\MovieLibraryEntities\\MovieLibraryEntities.csproj": {
-              "projectPath": "C:\\Users\\evanj\\source\\repos\\MovieLibraryEntities\\MovieLibraryEntities.csproj"
+            "C:\\Users\\evanj\\source\\repos\\MovieAppd\\MovieLibraryEntities\\MovieLibraryEntities.csproj": {
+              "projectPath": "C:\\Users\\evanj\\source\\repos\\MovieAppd\\MovieLibraryEntities\\MovieLibraryEntities.csproj"
             }
           }
         }
